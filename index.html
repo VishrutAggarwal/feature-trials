@@ -8,8 +8,14 @@
 <title>Title</title>
 </head>
 <body>
-    <div>
-        Badge: <img src="#" alt="no-alt">
+    <div id="badge">
     </div>
+    <script>
+        fetch("myjsonfile.json")
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('badge').innerHTML = `<img src="https://img.shields.io/badge/${data.label}-${data.message}-brightgreen">`;
+                })
+    </script>
 </body>
 </html>
